@@ -1,0 +1,49 @@
+loadkeys br-abnt2
+rfkill unblock wifi
+net-setup wlp2s0
+mkfs.ext4 /dev/sda2
+mkdir -p /mnt/gentoo/boot/efi
+mkdir -p /mnt/gentoo/home
+mount /dev/sda1 /mnt/gentoo/boot/efi
+mount /dev/sda2 /mnt/gentoo
+mount /dev/sda3 /mnt/gentoo/home
+cd /mnt/gentoo
+links gentoo.org/downloads
+tar -xjpf stage3*.tar.bz2
+ntpd -q -g
+mkdir -p /mnt/gentoo/etc/portage/repos.conf
+cp /mnt/gentoo/usr/share/portage/config/repos.conf /mnt/gentoo/etc/portage/repos.conf/gentoo.conf
+cp -L /etc/resolv.conf /mnt/gentoo/etc/
+mount -t proc proc /mnt/gentoo/proc
+mount --rbind /dev /mnt/gentoo/dev
+mount --rbind /sys /mnt/gentoo/sys
+chroot /mnt/gentoo /bin/bash
+source /etc/profile && export PS1="(chroot) ${PS1}"
+emerge-webrsync
+eselect profile list
+eselect profile set (valor)
+emerge --ask --update --deep --newuse @world
+echo "Brazil/East" > /etc/timezone
+emerge --config sys-libs/timezone-data
+nano -w /etc/locale.gen
+locale-gen
+eselect locale list
+eselect locale set (valor)
+env-update && source /etc/profile && export PS1="(chroot) ${PS1}"
+nano -w /etc/hosts
+nano -w /etc/conf.d/hostname
+emerge -a dhcpcd iw wpa_supplicant superadduser
+nano -w /etc/fstab
+emerge -av gentoo-sources genkernel 
+genkernel --menuconfig all
+merge -a grub 
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=gentoo_grub --recheck
+# mount -o remount,rw /sys/firmware/efi/efivars (Em caso de erro)
+grub-mkconfig -o /boot/grub/grub.cfg
+rc-update add wpa_supplicant default
+/etc/init.d/wpa_supplicant start
+gpasswd -a colorado plugdev
+exit
+umount -l /mnt/gentoo/dev{/shm,/pts,}
+umount -R /mnt/gentoo
+reboot
