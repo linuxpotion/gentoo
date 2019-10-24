@@ -1,6 +1,8 @@
 loadkeys br-abnt2
 rfkill unblock wifi
 net-setup wlp2s0
+https://raw.githubusercontent.com/linuxpotion/gentoo/master/install-gentoo
+https://raw.githubusercontent.com/linuxpotion/gentoo/master/make.conf
 mkfs.ext4 /dev/sda2
 mkdir -p /mnt/gentoo/boot/efi
 mkdir -p /mnt/gentoo/home
