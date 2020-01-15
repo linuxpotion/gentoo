@@ -1,0 +1,49 @@
+# Adicionando serviços.
+rc-update add [SERVIÇO] default
+
+# Configurando wi-fi.
+/etc/conf.d/netForzar el uso de wpa_supplicant
+modules="wpa_supplicant"
+
+# Configurando rc.conf.
+/etc/rc.conf
+rc_parallel="YES"
+
+# Configurando mapa de teclado.
+/etc/conf.d/keymaps
+keymap="br-abnt2"
+
+# Configurando host.
+/etc/hosts
+127.0.0.1   localhost  gentoo
+::1         localhost  gentoo
+
+# Configurando hostname.
+/etc/conf.d/hostname
+hostname="gentoo"
+
+# Portage com GIT.
+/etc/portage/repos.conf/gentoo.conf	
+[DEFAULT]
+main-repo = gentoo
+ 
+[gentoo]
+location = /usr/portage
+sync-type = git
+sync-uri = https://github.com/gentoo/gentoo.git
+#sync-uri = https://github.com/gentoo-mirror/gentoo.git 
+#sync-uri = https://gitweb.gentoo.org/repo/sync/gentoo.git 
+auto-sync = yes
+ 
+#[DEFAULT]
+#main-repo = gentoo
+#
+#[gentoo]
+#location = /usr/portage
+#sync-type = rsync
+#sync-uri = rsync://rsync.gentoo.org/gentoo-portage
+#auto-sync = yes
+ 
+# for daily squashfs snapshots
+#sync-type = squashdelta
+#sync-uri = mirror://gentoo/../snapshots/squashfs
