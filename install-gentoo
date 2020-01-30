@@ -36,9 +36,12 @@ nano -w /etc/hosts
 nano -w /etc/conf.d/hostname
 emerge -a dhcpcd iw wpa_supplicant superadduser
 nano -w /etc/fstab
+cp /mnt/cdrom/isolinux/${KN} /mnt/cdrom/isolinux/${KN}.igz /mnt/gentoo/boot
+mkdir -p /mnt/gentoo/lib/modules
+cp -Rp /lib/modules/`uname -r` /mnt/gentoo/lib/modules
 emerge -av gentoo-sources genkernel 
 genkernel --menuconfig all
-merge -a grub 
+emerge -a grub 
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=gentoo_grub --recheck
 # mount -o remount,rw /sys/firmware/efi/efivars (Em caso de erro)
 grub-mkconfig -o /boot/grub/grub.cfg

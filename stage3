@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-wget -nv http://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20200112T214502Z.tar.xz
+wget -nv https://gentoo.c3sl.ufpr.br/releases/amd64/autobuilds/current-stage3-amd64/stage3-amd64-20200126T214502Z.tar.xz
 tar xpf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner -C /mnt/gentoo/
