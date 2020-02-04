@@ -1,0 +1,6 @@
+REQUIRED_USE="foo? ( bar )"                 Se foo estiver definido, a bar deverá estar definida.
+REQUIRED_USE="foo? ( !bar )"                Se foo estiver definido, a bar não deve estar definida.
+REQUIRED_USE="foo? ( || ( bar baz ) )"      Se foo estiver definido, bar ou baz deverão ser definidos.
+REQUIRED_USE="^^ ( foo bar baz )"           Exatamente um de foo bar ou baz deve ser definido.
+REQUIRED_USE="|| ( foo bar baz )"           Pelo menos um dos foo bar ou baz deve ser definido.
+REQUIRED_USE="?? ( foo bar baz )"           Não pode ser definido mais do que um foo bar ou baz .

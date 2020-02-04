@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
 
 _PREPARA() {
-     cd /usr/src
-     rm -rf linux
-     ln -s linux-*-gentoo linux
-     cd linux
-     echo "Copie a configuração do kernel e rode 'make menuconfig'."
+     cd /usr/src/linux
+     echo "Rode as seguintes linhas de comando;
+                ---------------------------
+                eselect kernel list
+                eselect kernel set <number>
+                ---------------------------
+           Copie a configuração do kernel e renomeie para '.config'."
 }
 
 _COMPILA() {
-     # make localmodconfig
-     make -s -j4 bzImage modules
-     make -s -j4 modules_install
+     make -s -j5 bzImage modules
+     make -s -j5 modules_install
      make install
      grub-mkconfig -o /boot/grub/grub.cfg
 }
