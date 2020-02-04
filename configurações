@@ -1,5 +1,8 @@
 # Adicionando serviços.
-rc-update add [SERVIÇO] default
+rc-update add dbus default
+rc-update add xdm default
+rc-update add dhcpcd default
+rc-update add elogind boot 
 
 # Configurando wi-fi.
 /etc/conf.d/netForzar el uso de wpa_supplicant
