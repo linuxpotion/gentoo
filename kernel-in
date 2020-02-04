@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
 _PREPARA() {
+     cp config-arch /usr/src/linux/.config
      cd /usr/src/linux
      echo "Rode as seguintes linhas de comando;
                 ---------------------------
                 eselect kernel list
                 eselect kernel set <number>
-                ---------------------------
-           Copie a configuração do kernel e renomeie para '.config'."
+                ---------------------------"
 }
 
 _COMPILA() {
