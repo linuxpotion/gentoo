@@ -3,21 +3,29 @@
 _PREPARA() {
      cp config-arch /usr/src/linux/.config
      cd /usr/src/linux
-     echo "Rode as seguintes linhas de comando;
-                ---------------------------
-                eselect kernel list
-                eselect kernel set <number>
-                ---------------------------"
+     make oldconfig
+     printf "\nRode 'make menuconfig' e defina a variável LOCAL_VERSION.\n\n"
 }
 
 _COMPILA() {
-     make -s -j5 bzImage modules
-     make -s -j5 modules_install
-     make install
-     grub-mkconfig -o /boot/grub/grub.cfg
+     cd /usr/src/linux
+     make prepare
+     make -j5 bzImage && make -j5 modules
+     make -j5 modules_install
+     #sudo cp arch/x86_64/boot/bzImage /boot/vmlinuz-4.19.101-gentoo
+     #sudo cp System.map /boot/System.map-4.19.101-gentoo
+     #sudo cp .config /boot/config-4.19.101-gentoo 
+     printf "\nRode 'ls' em /boot e verifique os arquivos do kernel construído.\n\n"
+}
+
+_INITRAMFS() {
+    genkernel --microcode=intel --kernel-config=/boot/config-5.5.2-gentoo --install initramfs
+    #genkernel ramdisk --microcode=intel --kernel-config=/boot/config-5.5.2-gentoo
+    grub-mkconfig -o /boot/grub/grub.cfg
 }
 
 case $1 in
      --prepare) _PREPARA ;;
      --compile) _COMPILA ;;
+     --ramdisk) _INITRAMFS ;;
 esac
