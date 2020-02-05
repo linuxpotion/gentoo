@@ -4,6 +4,20 @@ rc-update add xdm default
 rc-update add dhcpcd default
 rc-update add elogind boot 
 
+# Adquirir flags.
+emerge -a cpuid2cpuflags
+cpuid2cpuflags >> /etc/portage/make.conf
+
+# SLiM
+/etc/slim.confModifying slim.conf
+# login_cmd           exec /bin/sh - ~/.xinitrc %session
+login_cmd           exec /bin/bash -login ~/.xinitrc %session
+# login_cmd           exec /bin/bash -login /usr/share/slim/Xsession %session
+
+# Sessão global (verificar /etc/X11/Xsessions)
+/etc/env.d/90xsession
+XSESSION="xfce"
+
 # Configurando wi-fi.
 /etc/conf.d/netForzar el uso de wpa_supplicant
 modules="wpa_supplicant"

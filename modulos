@@ -1,0 +1,327 @@
+Module                  Size  Used by
+ccm                    20480  9
+8021q                  40960  0
+garp                   16384  1 8021q
+mrp                    20480  1 8021q
+stp                    16384  1 garp
+llc                    16384  2 stp,garp
+btusb                  65536  0
+btrtl                  24576  1 btusb
+btbcm                  16384  1 btusb
+btintel                32768  1 btusb
+bluetooth             675840  5 btrtl,btintel,btbcm,btusb
+ecdh_generic           16384  1 bluetooth
+ecc                    36864  1 ecdh_generic
+uvcvideo              114688  0
+videobuf2_vmalloc      20480  1 uvcvideo
+videobuf2_memops       20480  1 videobuf2_vmalloc
+videobuf2_v4l2         28672  1 uvcvideo
+videobuf2_common       57344  2 videobuf2_v4l2,uvcvideo
+videodev              266240  3 videobuf2_v4l2,uvcvideo,videobuf2_common
+mc                     61440  4 videodev,videobuf2_v4l2,uvcvideo,videobuf2_common
+nls_iso8859_1          16384  1
+nls_cp437              20480  1
+vfat                   24576  1
+fat                    86016  1 vfat
+cpufreq_powersave      20480  0
+snd_hda_codec_hdmi     73728  1
+snd_hda_codec_generic    94208  1
+ledtrig_audio          16384  1 snd_hda_codec_generic
+ath10k_pci             65536  0
+i915                 2449408  28
+ath10k_core           602112  1 ath10k_pci
+joydev                 28672  0
+ath                    36864  1 ath10k_core
+mac80211             1007616  1 ath10k_core
+mousedev               24576  0
+snd_hda_intel          57344  3
+snd_intel_dspcfg       28672  1 snd_hda_intel
+snd_hda_codec         163840  3 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel
+intel_rapl_msr         20480  0
+intel_rapl_common      32768  1 intel_rapl_msr
+hid_rmi                24576  0
+snd_hda_core          106496  4 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec
+x86_pkg_temp_thermal    20480  0
+intel_powerclamp       20480  0
+i2c_algo_bit           16384  1 i915
+coretemp               20480  0
+drm_kms_helper        237568  1 i915
+drm                   557056  10 drm_kms_helper,i915
+rmi_core               86016  1 hid_rmi
+iTCO_wdt               16384  0
+hid_generic            16384  0
+mei_hdcp               24576  0
+iTCO_vendor_support    16384  1 iTCO_wdt
+intel_wmi_thunderbolt    20480  0
+wmi_bmof               16384  0
+intel_gtt              24576  1 i915
+snd_hwdep              16384  1 snd_hda_codec
+cfg80211              860160  3 ath,mac80211,ath10k_core
+kvm_intel             311296  0
+agpgart                53248  2 intel_gtt,drm
+r8169                  94208  0
+snd_pcm               139264  4 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core
+syscopyarea            16384  1 drm_kms_helper
+intel_xhci_usb_role_switch    16384  0
+sysfillrect            16384  1 drm_kms_helper
+i2c_hid                32768  0
+roles                  16384  1 intel_xhci_usb_role_switch
+libarc4                16384  1 mac80211
+sysimgblt              16384  1 drm_kms_helper
+realtek                20480  1
+snd_timer              40960  1 snd_pcm
+kvm                   802816  1 kvm_intel
+snd                   114688  13 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hwdep,snd_hda_intel,snd_hda_codec,snd_timer,snd_pcm
+libphy                114688  2 r8169,realtek
+fb_sys_fops            16384  1 drm_kms_helper
+hid                   147456  3 i2c_hid,hid_generic,hid_rmi
+input_leds             16384  0
+evdev                  24576  10
+irqbypass              16384  1 kvm
+mac_hid                16384  0
+soundcore              16384  1 snd
+ideapad_laptop         24576  0
+crct10dif_pclmul       16384  1
+sparse_keymap          16384  1 ideapad_laptop
+mei_me                 45056  1
+intel_lpss_pci         20480  0
+crc32_pclmul           16384  0
+intel_lpss             16384  1 intel_lpss_pci
+rfkill                 28672  8 bluetooth,ideapad_laptop,cfg80211
+mei                   122880  3 mei_hdcp,mei_me
+intel_pch_thermal      16384  0
+battery                24576  0
+ghash_clmulni_intel    16384  0
+idma64                 20480  0
+i2c_i801               36864  0
+aesni_intel           368640  6
+crypto_simd            16384  1 aesni_intel
+cryptd                 24576  2 crypto_simd,ghash_clmulni_intel
+glue_helper            16384  1 aesni_intel
+wmi                    36864  3 intel_wmi_thunderbolt,wmi_bmof,ideapad_laptop
+intel_cstate           16384  0
+tpm_crb                20480  0
+intel_uncore          147456  0
+pcspkr                 16384  0
+tpm_tis                16384  0
+tpm_tis_core           32768  1 tpm_tis
+tpm                    73728  3 tpm_tis,tpm_crb,tpm_tis_core
+intel_rapl_perf        16384  0
+rng_core               16384  1 tpm
+ac                     16384  0
+crypto_user            16384  0
+ip_tables              36864  0
+x_tables               53248  1 ip_tables
+ext4                  786432  2
+crc32c_generic         16384  0
+crc16                  16384  2 bluetooth,ext4
+mbcache                16384  1 ext4
+jbd2                  135168  1 ext4
+sd_mod                 57344  5
+ahci                   40960  4
+serio_raw              20480  0
+libahci                45056  1 ahci
+atkbd                  36864  0
+libps2                 20480  1 atkbd
+libata                290816  2 libahci,ahci
+xhci_pci               20480  0
+scsi_mod              258048  2 sd_mod,libata
+xhci_hcd              282624  1 xhci_pci
+crc32c_intel           24576  4
+i8042                  32768  1 ideapad_laptop
+serio                  28672  5 rmi_core,serio_raw,atkbd,i8042
+Module                  Size  Used by
+8021q                  28672  0
+fan                    16384  0
+thermal                20480  0
+arc4                   16384  2
+snd_hda_codec_hdmi     49152  0
+wmi_bmof               16384  0
+snd_hda_codec_generic    61440  1
+ath10k_pci             36864  0
+ath10k_core           294912  1 ath10k_pci
+snd_hda_intel          36864  0
+snd_hda_codec          90112  3 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel
+ath                    32768  1 ath10k_core
+mac80211              569344  1 ath10k_core
+snd_hda_core           61440  4 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec
+snd_pcm                81920  4 snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_hda_core
+x86_pkg_temp_thermal    16384  0
+snd_timer              32768  1 snd_pcm
+cfg80211              565248  3 ath,mac80211,ath10k_core
+r8169                  69632  0
+snd                    73728  6 snd_hda_codec_generic,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,snd_timer,snd_pcm
+ideapad_laptop         36864  0
+efivars                16384  0
+realtek                20480  0
+sparse_keymap          16384  1 ideapad_laptop
+soundcore              16384  1 snd
+libphy                 49152  3 r8169,realtek
+hwmon                  20480  1 ath10k_core
+rfkill                 24576  2 ideapad_laptop,cfg80211
+video                  40960  1 ideapad_laptop
+wmi                    20480  2 wmi_bmof,ideapad_laptop
+backlight              16384  2 video,ideapad_laptop
+battery                20480  0
+button                 16384  0
+acpi_pad               16384  0
+ac                     16384  0
+efivarfs               16384  1
+aes_x86_64             20480  0
+algif_rng              16384  0
+algif_aead             16384  0
+algif_hash             16384  0
+algif_skcipher         16384  0
+af_alg                 20480  4 algif_hash,algif_skcipher,algif_aead,algif_rng
+xts                    16384  0
+crc32_generic          16384  0
+sha256_generic         20480  0
+msdos                  20480  0
+configfs               36864  1
+fuse                   94208  1
+f2fs                  397312  0
+jfs                   163840  0
+btrfs                1073152  0
+zstd_decompress        81920  1 btrfs
+zstd_compress         188416  1 btrfs
+xxhash                 16384  2 zstd_compress,zstd_decompress
+lzo_compress           16384  1 btrfs
+zlib_deflate           28672  1 btrfs
+multipath              16384  0
+linear                 16384  0
+raid10                 49152  0
+raid1                  40960  0
+raid0                  20480  0
+dm_zero                16384  0
+dm_snapshot            40960  0
+dm_raid                40960  0
+raid456               114688  1 dm_raid
+async_raid6_recov      16384  1 raid456
+async_memcpy           16384  1 raid456
+async_pq               16384  1 raid456
+async_xor              16384  2 async_pq,raid456
+async_tx               16384  5 async_pq,async_memcpy,async_xor,raid456,async_raid6_recov
+xor                    24576  2 async_xor,btrfs
+raid6_pq              114688  4 async_pq,btrfs,raid456,async_raid6_recov
+dm_mirror              20480  0
+dm_region_hash         16384  1 dm_mirror
+dm_log                 16384  2 dm_region_hash,dm_mirror
+dm_crypt               36864  0
+dm_bufio               24576  1 dm_snapshot
+dm_mod                110592  7 dm_raid,dm_crypt,dm_zero,dm_log,dm_snapshot,dm_mirror,dm_bufio
+dax                    20480  1 dm_mod
+hid_sunplus            16384  0
+hid_sony               28672  0
+hid_samsung            16384  0
+hid_pl                 16384  0
+hid_petalynx           16384  0
+hid_logitech_dj        20480  0
+hid_gyration           16384  0
+sl811_hcd              20480  0
+ohci_hcd               36864  0
+uhci_hcd               32768  0
+usb_storage            57344  1
+xhci_pci               16384  0
+xhci_hcd              176128  1 xhci_pci
+ehci_pci               16384  0
+ehci_hcd               49152  1 ehci_pci
+pata_sl82c105          16384  0
+pata_via               16384  0
+pata_jmicron           16384  0
+pata_marvell           16384  0
+pata_netcell           16384  0
+pata_pdc202xx_old      16384  0
+pata_triflex           16384  0
+pata_atiixp            16384  0
+pata_opti              16384  0
+pata_amd               20480  0
+pata_ali               16384  0
+pata_it8213            16384  0
+pata_pcmcia            20480  0
+pcmcia                 45056  1 pata_pcmcia
+pcmcia_core            20480  1 pcmcia
+pata_ns87415           16384  0
+pata_ns87410           16384  0
+pata_serverworks       16384  0
+pata_artop             16384  0
+pata_it821x            16384  0
+pata_optidma           16384  0
+pata_hpt3x2n           16384  0
+pata_hpt3x3            16384  0
+pata_hpt37x            20480  0
+pata_hpt366            16384  0
+pata_cmd64x            16384  0
+pata_efar              16384  0
+pata_rz1000            16384  0
+pata_sil680            16384  0
+pata_radisys           16384  0
+pata_pdc2027x          16384  0
+pata_mpiix             16384  0
+aic94xx                81920  0
+libsas                 69632  1 aic94xx
+qla2xxx               704512  0
+megaraid_mbox          32768  0
+megaraid_mm            16384  1 megaraid_mbox
+aacraid               110592  0
+sx8                    20480  0
+DAC960                 73728  0
+hpsa                   86016  0
+3w_9xxx                40960  0
+3w_xxxx                32768  0
+3w_sas                 28672  0
+mptsas                 57344  0
+mptfc                  20480  0
+atp870u                28672  0
+dc395x                 36864  0
+qla1280                32768  0
+dmx3191d               20480  0
+sym53c8xx              81920  0
+gdth                   81920  0
+initio                 24576  0
+BusLogic               32768  0
+arcmsr                 40960  0
+aic7xxx               122880  0
+aic79xx               135168  0
+sg                     40960  0
+mpt3sas               229376  0
+raid_class             16384  1 mpt3sas
+scsi_transport_sas     32768  5 mptsas,aic94xx,hpsa,libsas,mpt3sas
+megaraid               49152  0
+megaraid_sas          131072  0
+mptspi                 28672  0
+mptscsih               36864  3 mptsas,mptspi,mptfc
+mptbase                86016  4 mptsas,mptspi,mptfc,mptscsih
+scsi_transport_spi     28672  5 mptspi,aic79xx,aic7xxx,sym53c8xx,dmx3191d
+pdc_adma               16384  0
+sata_inic162x          16384  0
+sata_mv                32768  0
+sata_qstor             16384  0
+sata_vsc               16384  0
+sata_uli               16384  0
+sata_sis               16384  0
+pata_sis               20480  1 sata_sis
+sata_sx4               20480  0
+sata_nv                32768  0
+sata_via               16384  0
+sata_svw               16384  0
+sata_sil24             20480  0
+sata_sil               16384  0
+sata_promise           16384  0
+ata_piix               32768  0
+ahci                   40960  1
+libahci                28672  1 ahci
+libata                196608  49 pata_ns87415,pata_sil680,pata_amd,sata_qstor,ata_piix,libahci,pata_optidma,pata_netcell,pata_hpt366,sata_promise,pata_marvell,sata_uli,pata_via,pata_pdc2027x,pata_hpt3x2n,pata_sl82c105,sata_sil,pata_ali,ahci,pata_opti,pata_it821x,sata_via,pata_cmd64x,sata_vsc,pata_hpt37x,pata_rz1000,pata_jmicron,pata_it8213,pata_efar,pdc_adma,sata_sil24,pata_pcmcia,pata_hpt3x3,pata_sis,pata_artop,sata_svw,sata_sx4,pata_ns87410,pata_radisys,pata_mpiix,sata_nv,sata_sis,libsas,sata_mv,pata_triflex,pata_serverworks,pata_pdc202xx_old,sata_inic162x,pata_atiixp
+nvme                   32768  0
+nvme_core              57344  1 nvme
+scsi_transport_fc      49152  2 qla2xxx,mptfc
+virtio_crypto          20480  0
+crypto_engine          16384  1 virtio_crypto
+virtio_mmio            16384  0
+virtio_pci             28672  0
+virtio_balloon         16384  0
+virtio_rng             16384  0
+virtio_console         28672  0
+virtio_blk             20480  0
+virtio_scsi            20480  0
+virtio_ring            20480  8 virtio_rng,virtio_mmio,virtio_console,virtio_balloon,virtio_scsi,virtio_crypto,virtio_pci,virtio_blk
+virtio                 16384  8 virtio_rng,virtio_mmio,virtio_console,virtio_balloon,virtio_scsi,virtio_crypto,virtio_pci,virtio_blk

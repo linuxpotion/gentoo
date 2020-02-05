@@ -1,0 +1,7 @@
+cd /usr/src/linux
+make clean && make distclean && make mrproper
+# Copie o arquivo de configuração do kernel.
+make oldconfig
+make -j4
+mount /dev/sda1 /boot/efi
+make -j4 modules_install && make install
